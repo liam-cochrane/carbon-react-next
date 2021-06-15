@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'CarbonIcons';
+    src: url('carbon-react/lib/style/fonts/carbon-icons-webfont.woff')
+        format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

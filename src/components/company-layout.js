@@ -5,6 +5,7 @@ import Tile from 'carbon-react/lib/components/tile';
 import { useCallback } from 'react';
 import _ from 'lodash';
 import AppWrapper from 'carbon-react/lib/components/app-wrapper';
+import SiteLayout from './site-layout';
 
 const CompanyLayout = ({ children }) => {
     const { pathname, replace, query } = useRouter();
@@ -21,21 +22,24 @@ const CompanyLayout = ({ children }) => {
     );
 
     return (
-        <AppWrapper>
-            <Tile orientation="vertical">
-                <Heading title="My Company">
-                    <Tabs
-                        selectedTabId={selectedTabId}
-                        onTabChange={handleTabChange}
-                    >
-                        <Tab title="Details" tabId="details" />
-                        <Tab title="Account" tabId="account" />
-                        <Tab title="Opportunities" tabId="opportunities" />
-                    </Tabs>
-                    <div>{children}</div>
-                </Heading>
-            </Tile>
-        </AppWrapper>
+        <SiteLayout>
+            <AppWrapper>
+                <Tile orientation="vertical">
+                    <Heading title="My Company">
+                        <Tabs
+                            selectedTabId={selectedTabId}
+                            onTabChange={handleTabChange}
+                            setLocation={false}
+                        >
+                            <Tab title="Details" tabId="details" />
+                            <Tab title="Account" tabId="account" />
+                            <Tab title="Opportunities" tabId="opportunities" />
+                        </Tabs>
+                        <div>{children}</div>
+                    </Heading>
+                </Tile>
+            </AppWrapper>
+        </SiteLayout>
     );
 };
 
